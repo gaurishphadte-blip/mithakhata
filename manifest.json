@@ -1,0 +1,8 @@
+{
+  "name": "Mitha Khata",
+  "short_name": "MithaKhata",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFF8DC",
+  "theme_color": "#FF8C00"
+}
