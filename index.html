@@ -8,7 +8,6 @@
     <meta name="theme-color" content="#FF8C00">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        /* CSS Variables for Brand Palette */
         :root {
             --orange: #FF8C00;
             --cream: #FFF8DC;
@@ -18,493 +17,220 @@
             --light-dark: #4A3525;
             --white: #FFFFFF;
         }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Poppins', sans-serif; background-color: var(--cream); color: var(--dark); line-height: 1.6; }
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; color: var(--dark); }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
  
-        /* Base Styles & Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 3rem; color: var(--orange); position: relative; }
+        .section-title::after { content: ''; display: block; width: 80px; height: 4px; background-color: var(--pistachio); margin: 10px auto 0; border-radius: 2px; }
  
-        html {
-            scroll-behavior: smooth;
-        }
+        .btn { display: inline-block; padding: 12px 28px; border-radius: 30px; font-weight: 600; font-size: 1rem; cursor: pointer; transition: all 0.3s ease; text-align: center; border: 2px solid transparent; font-family: 'Poppins', sans-serif; }
+        .btn-primary { background-color: var(--orange); color: var(--white); box-shadow: 0 4px 15px rgba(255,140,0,0.4); }
+        .btn-primary:hover { background-color: #e67e00; transform: translateY(-2px); }
+        .btn-secondary { background-color: transparent; color: var(--white); border-color: var(--white); }
+        .btn-secondary:hover { background-color: var(--white); color: var(--orange); transform: translateY(-2px); }
  
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--cream);
-            color: var(--dark);
-            line-height: 1.6;
-        }
- 
-        h1, h2, h3, h4 {
-            font-family: 'Playfair Display', serif;
-            color: var(--dark);
-        }
- 
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
- 
-        ul {
-            list-style: none;
-        }
- 
-        /* Typography */
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: var(--orange);
-            position: relative;
-        }
- 
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 4px;
-            background-color: var(--pistachio);
-            margin: 10px auto 0;
-            border-radius: 2px;
-        }
- 
-        /* Buttons */
-        .btn {
-            display: inline-block;
-            padding: 12px 28px;
-            border-radius: 30px;
-            font-weight: 600;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-align: center;
-            border: 2px solid transparent;
-        }
- 
-        .btn-primary {
-            background-color: var(--orange);
-            color: var(--white);
-            box-shadow: 0 4px 15px rgba(255, 140, 0, 0.4);
-        }
- 
-        .btn-primary:hover {
-            background-color: #e67e00;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 140, 0, 0.5);
-        }
- 
-        .btn-secondary {
-            background-color: transparent;
-            color: var(--white);
-            border-color: var(--white);
-        }
- 
-        .btn-secondary:hover {
-            background-color: var(--white);
-            color: var(--orange);
-            transform: translateY(-2px);
-        }
- 
-        /* Sticky Header */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 20px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            transition: all 0.3s ease;
-            background: rgba(255, 248, 220, 0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
- 
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--orange);
-        }
- 
-        nav ul {
-            display: flex;
-            gap: 30px;
-            align-items: center;
-        }
- 
-        nav ul li a {
-            font-weight: 500;
-            transition: color 0.3s;
-        }
- 
-        nav ul li a:hover {
-            color: var(--orange);
-        }
- 
-        .mobile-menu-btn {
-            display: none;
-            font-size: 1.5rem;
-            background: none;
-            border: none;
-            color: var(--orange);
-            cursor: pointer;
-        }
+        /* Header */
+        header { position: fixed; top: 30px; width: 100%; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; z-index: 1000; background: rgba(255,248,220,0.97); backdrop-filter: blur(10px); box-shadow: 0 2px 10px rgba(0,0,0,0.07); }
+        .logo { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; color: var(--orange); }
+        nav ul { display: flex; gap: 30px; align-items: center; }
+        nav ul li a { font-weight: 500; transition: color 0.3s; }
+        nav ul li a:hover { color: var(--orange); }
+        .mobile-menu-btn { display: none; font-size: 1.5rem; background: none; border: none; color: var(--orange); cursor: pointer; }
+        .cart-btn { background: var(--orange); color: white; border: none; border-radius: 30px; padding: 9px 22px; font-size: 0.95rem; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 8px; font-family: 'Poppins', sans-serif; transition: all 0.3s; box-shadow: 0 3px 12px rgba(255,140,0,0.35); }
+        .cart-btn:hover { background: #e67e00; transform: translateY(-2px); }
+        .cart-count { background: var(--dark); color: white; border-radius: 50%; width: 22px; height: 22px; display: inline-flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; }
  
         /* Urgency Banner */
-        .urgency-banner {
-            background-color: var(--rose);
-            color: var(--dark);
-            text-align: center;
-            padding: 8px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1001;
-        }
+        .urgency-banner { background-color: var(--rose); color: var(--dark); text-align: center; padding: 8px; font-size: 0.88rem; font-weight: 600; position: fixed; top: 0; width: 100%; z-index: 1001; }
  
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(44, 26, 16, 0.6), rgba(44, 26, 16, 0.6)), url('https://images.unsplash.com/photo-1626804475297-41609ae0bc45?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
-            background-attachment: fixed;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 0 20px;
-            margin-top: 30px; /* offset for banner */
-        }
+        /* Hero */
+        .hero { height: 100vh; background: linear-gradient(rgba(44,26,16,0.6), rgba(44,26,16,0.6)), url('https://images.unsplash.com/photo-1626804475297-41609ae0bc45?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat; background-attachment: fixed; display: flex; align-items: center; justify-content: center; text-align: center; padding: 0 20px; margin-top: 30px; }
+        .hero-content { color: var(--white); max-width: 800px; }
+        .hero h1 { font-size: 4rem; color: var(--white); margin-bottom: 20px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        .hero p { font-size: 1.5rem; margin-bottom: 30px; font-weight: 300; }
+        .hero-buttons { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
  
-        .hero-content {
-            color: var(--white);
-            max-width: 800px;
-        }
+        /* About */
+        .about { padding: 100px 5%; display: flex; align-items: center; gap: 50px; background-color: var(--white); }
+        .about-img { flex: 1; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .about-img img { width: 100%; display: block; }
+        .about-text { flex: 1; }
+        .about-text p { margin-bottom: 20px; font-size: 1.05rem; }
  
-        .hero h1 {
-            font-size: 4rem;
-            color: var(--white);
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
+        /* Features */
+        .features { padding: 80px 5%; background-color: var(--rose); }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; text-align: center; max-width: 1200px; margin: 0 auto; }
+        .feature-item { background: rgba(255,255,255,0.5); padding: 30px; border-radius: 15px; transition: background 0.3s; }
+        .feature-item:hover { background: rgba(255,255,255,0.8); }
+        .feature-icon { font-size: 3rem; margin-bottom: 15px; }
  
-        .hero p {
-            font-size: 1.5rem;
-            margin-bottom: 30px;
-            font-weight: 300;
-        }
- 
-        .hero-buttons {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-        }
- 
-        /* About Section */
-        .about {
-            padding: 100px 5%;
-            display: flex;
-            align-items: center;
-            gap: 50px;
-            background-color: var(--white);
-        }
- 
-        .about-img {
-            flex: 1;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
- 
-        .about-img img {
-            width: 100%;
-            display: block;
-        }
- 
-        .about-text {
-            flex: 1;
-        }
- 
-        .about-text p {
-            margin-bottom: 20px;
-            font-size: 1.1rem;
-        }
- 
-        /* Menu Highlights */
-        .menu {
-            padding: 100px 5%;
-            background-color: var(--cream);
-        }
- 
-        .menu-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
- 
-        .menu-card {
-            background: var(--white);
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
-        }
- 
-        .menu-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-        }
- 
-        .menu-img {
-            height: 250px;
-            width: 100%;
-            object-fit: cover;
-        }
- 
-        .menu-content {
-            padding: 25px;
-            text-align: center;
-        }
- 
-        .menu-content h3 {
-            color: var(--orange);
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-        }
- 
-        .menu-price {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: var(--pistachio);
-            margin: 15px 0;
-        }
- 
-        /* Why Choose Us */
-        .features {
-            padding: 80px 5%;
-            background-color: var(--rose);
-            color: var(--dark);
-        }
- 
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            text-align: center;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
- 
-        .feature-item {
-            background: rgba(255, 255, 255, 0.5);
-            padding: 30px;
-            border-radius: 15px;
-            transition: background 0.3s;
-        }
- 
-        .feature-item:hover {
-            background: rgba(255, 255, 255, 0.8);
-        }
- 
-        .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 15px;
-        }
+        /* Menu */
+        .menu { padding: 100px 5%; background-color: var(--cream); }
+        .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto; }
+        .menu-card { background: var(--white); border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.06); transition: transform 0.3s, box-shadow 0.3s; }
+        .menu-card:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+        .menu-img { height: 250px; width: 100%; object-fit: cover; }
+        .menu-content { padding: 22px; }
+        .menu-content h3 { color: var(--orange); font-size: 1.35rem; margin-bottom: 8px; }
+        .menu-content > p { font-size: 0.9rem; color: var(--light-dark); margin-bottom: 14px; }
+        .menu-price { font-size: 1.1rem; font-weight: 700; color: var(--pistachio); margin-bottom: 14px; }
+        .sub-items { margin-bottom: 14px; }
+        .sub-items label { font-size: 0.82rem; font-weight: 600; color: #888; display: block; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .sub-items select { width: 100%; padding: 9px 12px; border-radius: 10px; border: 1.5px solid #eee; font-family: 'Poppins', sans-serif; font-size: 0.88rem; background: var(--cream); color: var(--dark); cursor: pointer; }
+        .sub-items select:focus { outline: none; border-color: var(--orange); }
+        .item-controls { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+        .qty-control { display: flex; align-items: center; gap: 10px; background: var(--cream); border-radius: 30px; padding: 5px 14px; }
+        .qty-btn { background: none; border: none; font-size: 1.4rem; cursor: pointer; color: var(--orange); font-weight: 700; line-height: 1; padding: 0 2px; }
+        .qty-val { font-weight: 700; min-width: 20px; text-align: center; }
+        .add-cart-btn { background: var(--orange); color: white; border: none; border-radius: 30px; padding: 10px 20px; font-size: 0.9rem; font-weight: 600; cursor: pointer; transition: all 0.25s; font-family: 'Poppins', sans-serif; }
+        .add-cart-btn:hover { background: #e67e00; transform: scale(1.04); }
+        .add-cart-btn.added { background: var(--pistachio); }
  
         /* Gallery */
-        .gallery {
-            padding: 100px 5%;
-            background-color: var(--white);
-        }
- 
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
- 
-        .gallery-item {
-            border-radius: 10px;
-            overflow: hidden;
-            height: 250px;
-        }
- 
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-            cursor: pointer;
-        }
- 
-        .gallery-item img:hover {
-            transform: scale(1.1);
-        }
+        .gallery { padding: 100px 5%; background-color: var(--white); }
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto; }
+        .gallery-item { border-radius: 10px; overflow: hidden; height: 250px; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; cursor: pointer; }
+        .gallery-item img:hover { transform: scale(1.1); }
  
         /* Testimonials */
-        .testimonials {
-            padding: 100px 5%;
-            background-color: var(--cream);
-        }
+        .testimonials { padding: 100px 5%; background-color: var(--cream); }
+        .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
+        .testimonial-card { background: var(--white); padding: 30px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: center; border-top: 5px solid var(--pistachio); }
+        .stars { color: var(--orange); font-size: 1.2rem; margin-bottom: 15px; }
+        .quote { font-style: italic; margin-bottom: 20px; }
+        .customer-name { font-weight: 600; color: var(--light-dark); }
  
-        .testimonial-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+        /* Footer */
+        footer { background-color: var(--dark); color: var(--cream); padding: 80px 5% 80px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 50px; max-width: 1200px; margin: 0 auto 50px; }
+        .footer-col h3 { color: var(--orange); margin-bottom: 20px; }
+        .footer-col ul li { margin-bottom: 10px; }
+        .map-placeholder { width: 100%; height: 200px; background-color: #444; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: var(--cream); text-align: center; }
+        .copyright { text-align: center; padding-top: 20px; border-top: 1px solid rgba(255,248,220,0.1); font-size: 0.9rem; color: rgba(255,248,220,0.5); }
  
-        .testimonial-card {
-            background: var(--white);
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            text-align: center;
-            border-top: 5px solid var(--pistachio);
-        }
+        /* WhatsApp Float */
+        .whatsapp-float { position: fixed; bottom: 80px; right: 25px; background-color: #25D366; color: white; width: 58px; height: 58px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(37,211,102,0.4); z-index: 900; transition: transform 0.3s; }
+        .whatsapp-float:hover { transform: scale(1.1); }
  
-        .stars {
-            color: var(--orange);
-            font-size: 1.2rem;
-            margin-bottom: 15px;
-        }
+        /* ===== CART SIDEBAR ===== */
+        .cart-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 2000; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+        .cart-overlay.open { opacity: 1; pointer-events: all; }
+        .cart-sidebar { position: fixed; right: -430px; top: 0; width: 420px; max-width: 100vw; height: 100vh; background: var(--white); z-index: 2001; display: flex; flex-direction: column; transition: right 0.35s cubic-bezier(0.4,0,0.2,1); box-shadow: -5px 0 30px rgba(0,0,0,0.15); }
+        .cart-sidebar.open { right: 0; }
+        .cart-header { background: var(--orange); color: white; padding: 20px 25px; display: flex; justify-content: space-between; align-items: center; flex-shrink: 0; }
+        .cart-header h2 { color: white; font-size: 1.5rem; }
+        .cart-close { background: none; border: none; color: white; font-size: 2rem; cursor: pointer; line-height: 1; }
+        .cart-items { flex: 1; overflow-y: auto; padding: 15px 20px; }
+        .cart-empty { text-align: center; padding: 60px 20px; color: #bbb; }
+        .cart-empty .empty-icon { font-size: 4rem; margin-bottom: 12px; }
+        .cart-item { display: flex; align-items: flex-start; gap: 14px; padding: 14px 0; border-bottom: 1px solid #f3f3f3; }
+        .cart-item-img { width: 65px; height: 65px; border-radius: 10px; object-fit: cover; flex-shrink: 0; }
+        .cart-item-info { flex: 1; min-width: 0; }
+        .cart-item-name { font-weight: 600; font-size: 0.93rem; }
+        .cart-item-variant { font-size: 0.78rem; color: #999; margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .cart-item-price { font-weight: 600; color: var(--orange); font-size: 0.9rem; margin-top: 4px; }
+        .cart-item-qty { display: flex; align-items: center; gap: 8px; margin-top: 8px; }
+        .cqty-btn { background: var(--cream); border: none; width: 26px; height: 26px; border-radius: 50%; cursor: pointer; font-size: 1rem; font-weight: 700; color: var(--orange); display: flex; align-items: center; justify-content: center; }
+        .cqty-val { font-weight: 700; min-width: 20px; text-align: center; font-size: 0.9rem; }
+        .cart-remove { background: none; border: none; color: #ddd; cursor: pointer; font-size: 1.1rem; margin-left: 4px; flex-shrink: 0; margin-top: 2px; transition: color 0.2s; }
+        .cart-remove:hover { color: #e00; }
+        .cart-footer { padding: 18px 22px; border-top: 2px solid #f5f5f5; background: white; flex-shrink: 0; }
+        .cart-row { display: flex; justify-content: space-between; font-size: 0.92rem; margin-bottom: 7px; color: #666; }
+        .cart-row.total { font-size: 1.25rem; font-weight: 700; color: var(--dark); margin-top: 10px; padding-top: 10px; border-top: 1px solid #eee; margin-bottom: 16px; }
+        .checkout-btn { width: 100%; padding: 14px; background: var(--orange); color: white; border: none; border-radius: 30px; font-size: 1.05rem; font-weight: 700; cursor: pointer; font-family: 'Poppins', sans-serif; transition: all 0.3s; }
+        .checkout-btn:hover { background: #e67e00; transform: translateY(-1px); }
+        .checkout-btn:disabled { background: #ccc; cursor: not-allowed; transform: none; }
  
-        .quote {
-            font-style: italic;
-            margin-bottom: 20px;
-        }
+        /* ===== ORDER MODAL ===== */
+        .order-modal { position: fixed; inset: 0; z-index: 3000; display: none; align-items: center; justify-content: center; padding: 15px; }
+        .order-modal.open { display: flex; }
+        .order-modal-bg { position: absolute; inset: 0; background: rgba(0,0,0,0.6); }
+        .order-modal-box { position: relative; background: white; border-radius: 20px; width: 100%; max-width: 600px; max-height: 92vh; overflow-y: auto; box-shadow: 0 20px 60px rgba(0,0,0,0.3); animation: modalIn 0.3s ease; }
+        @keyframes modalIn { from { transform: translateY(25px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        .modal-header { background: var(--orange); color: white; padding: 18px 25px; border-radius: 20px 20px 0 0; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1; }
+        .modal-header h2 { color: white; font-size: 1.35rem; }
+        .modal-close { background: none; border: none; color: white; font-size: 2rem; cursor: pointer; line-height: 1; }
+        .modal-body { padding: 22px; }
  
-        .customer-name {
-            font-weight: 600;
-            color: var(--light-dark);
-        }
+        /* Bill */
+        .bill-section { background: linear-gradient(135deg, #fffdf5, #fff8dc); border: 1.5px dashed var(--orange); border-radius: 14px; padding: 20px; margin-bottom: 22px; }
+        .bill-header-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+        .bill-brand { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--orange); font-weight: 700; }
+        .bill-id { font-size: 0.78rem; color: #aaa; text-align: right; }
+        .bill-divider { border: none; border-top: 1px dashed #ddd; margin: 10px 0; }
+        .bill-row { display: flex; justify-content: space-between; align-items: center; font-size: 0.9rem; padding: 5px 0; }
+        .bill-row .item-col { flex: 1; }
+        .bill-row .qty-col { color: #888; margin: 0 12px; font-size: 0.83rem; }
+        .bill-row .price-col { font-weight: 600; }
+        .bill-subtotal-row { display: flex; justify-content: space-between; font-size: 0.88rem; color: #888; padding: 4px 0; }
+        .bill-total-row { display: flex; justify-content: space-between; font-size: 1.15rem; font-weight: 700; color: var(--orange); padding: 10px 0 0; margin-top: 8px; border-top: 2px solid var(--orange); }
  
-        /* Footer & Contact */
-        footer {
-            background-color: var(--dark);
-            color: var(--cream);
-            padding: 80px 5% 20px;
-        }
+        /* Form */
+        .form-section h3 { font-size: 1rem; color: var(--dark); margin-bottom: 14px; display: flex; align-items: center; gap: 7px; font-family: 'Poppins', sans-serif; font-weight: 700; }
+        .form-group { margin-bottom: 14px; }
+        .form-group label { display: block; font-size: 0.82rem; font-weight: 600; color: #888; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 0.4px; }
+        .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 11px 14px; border: 1.5px solid #e8e8e8; border-radius: 10px; font-family: 'Poppins', sans-serif; font-size: 0.93rem; color: var(--dark); background: white; transition: border-color 0.2s; }
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus { outline: none; border-color: var(--orange); }
+        .form-group textarea { resize: vertical; min-height: 75px; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+        .required { color: var(--orange); }
  
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 50px;
-            max-width: 1200px;
-            margin: 0 auto 50px;
-        }
+        /* Payment */
+        .payment-options { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 6px; }
+        .pay-option { flex: 1; min-width: 90px; border: 2px solid #eee; border-radius: 12px; padding: 12px 8px; text-align: center; cursor: pointer; transition: all 0.2s; }
+        .pay-option:hover { border-color: var(--orange); background: #fffaf0; }
+        .pay-option.selected { border-color: var(--orange); background: #FFF3E0; }
+        .pay-option input { display: none; }
+        .pay-icon { font-size: 1.5rem; display: block; margin-bottom: 4px; }
+        .pay-label { font-size: 0.78rem; font-weight: 600; display: block; }
  
-        .footer-col h3 {
-            color: var(--orange);
-            margin-bottom: 20px;
-        }
+        /* Submit */
+        .submit-btn { width: 100%; padding: 15px; background: var(--pistachio); color: white; border: none; border-radius: 30px; font-size: 1.05rem; font-weight: 700; cursor: pointer; font-family: 'Poppins', sans-serif; transition: all 0.3s; margin-top: 18px; }
+        .submit-btn:hover { background: #7ab35a; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(147,197,114,0.45); }
  
-        .footer-col ul li {
-            margin-bottom: 10px;
-        }
+        /* Success */
+        .order-success { text-align: center; padding: 40px 20px; }
+        .success-icon { font-size: 5rem; margin-bottom: 12px; }
+        .order-success h3 { font-size: 1.8rem; color: var(--pistachio); margin-bottom: 8px; }
+        .order-success p { color: #666; margin-bottom: 18px; }
+        .order-id-badge { background: var(--cream); border-radius: 10px; padding: 10px 20px; display: inline-block; font-weight: 700; font-size: 1.1rem; color: var(--orange); margin-bottom: 20px; border: 1.5px dashed var(--orange); }
  
-        .footer-col a:hover {
-            color: var(--pistachio);
-        }
+        /* Sticky bar */
+        .sticky-bar { position: fixed; bottom: 0; width: 100%; background: var(--dark); padding: 12px 20px; display: flex; align-items: center; justify-content: space-between; z-index: 900; gap: 10px; }
+        .sticky-bar-info { color: white; font-size: 0.88rem; line-height: 1.4; }
+        .sticky-bar-info .count { color: var(--orange); font-weight: 700; }
+        .sticky-bar-info .total { color: var(--pistachio); font-weight: 700; }
+        .sticky-order-btn { background: var(--orange); color: white; border: none; border-radius: 30px; padding: 10px 22px; font-size: 0.9rem; font-weight: 700; cursor: pointer; font-family: 'Poppins', sans-serif; transition: all 0.3s; white-space: nowrap; flex-shrink: 0; }
+        .sticky-order-btn:hover { background: #e67e00; }
  
-        .map-placeholder {
-            width: 100%;
-            height: 200px;
-            background-color: #444;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--cream);
-        }
+        /* Toast */
+        .toast { position: fixed; top: 75px; right: 20px; background: var(--dark); color: white; padding: 11px 18px; border-radius: 10px; font-size: 0.88rem; z-index: 5000; transform: translateX(220px); opacity: 0; transition: all 0.3s; display: flex; align-items: center; gap: 8px; border-left: 3px solid var(--pistachio); max-width: 280px; }
+        .toast.show { transform: translateX(0); opacity: 1; }
  
-        .copyright {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255,248,220,0.1);
-            font-size: 0.9rem;
-            color: rgba(255,248,220,0.6);
-        }
- 
-        /* Floating WhatsApp CTA */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background-color: #25D366;
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 35px;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
-            z-index: 100;
-            transition: transform 0.3s;
-        }
- 
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-        }
- 
-        /* Responsive Design */
+        /* Responsive */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.8rem;
-            }
-            .hero-buttons {
-                flex-direction: column;
-            }
-            .about {
-                flex-direction: column;
-            }
-            nav ul {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: var(--cream);
-                flex-direction: column;
-                padding: 20px 0;
-                text-align: center;
-                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-            }
-            nav ul.show {
-                display: flex;
-            }
-            .mobile-menu-btn {
-                display: block;
-            }
-            header {
-                padding: 15px 5%;
-                margin-top: 30px; /* Offset for banner */
-            }
+            .hero h1 { font-size: 2.6rem; }
+            .hero-buttons { flex-direction: column; align-items: center; }
+            .about { flex-direction: column; }
+            nav ul { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: var(--cream); flex-direction: column; padding: 20px 0; text-align: center; box-shadow: 0 5px 10px rgba(0,0,0,0.1); }
+            nav ul.show { display: flex; }
+            .mobile-menu-btn { display: block; }
+            header { padding: 12px 5%; }
+            .cart-sidebar { width: 100vw; right: -100vw; }
+            .form-row { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
  
-    <!-- Urgency Banner -->
-    <div class="urgency-banner">
-        🚨 Made Fresh Daily in Goa – Order Before 8 PM for Guaranteed Delivery!
-    </div>
+    <div class="urgency-banner">🚨 Made Fresh Daily in Goa – Order Before 8 PM for Guaranteed Delivery!</div>
  
-    <!-- Header -->
-    <header id="header">
+    <header>
         <a href="#" class="logo">Mitha Khata</a>
         <nav>
             <ul id="nav-links">
@@ -512,107 +238,51 @@
                 <li><a href="#menu">Menu</a></li>
                 <li><a href="#gallery">Gallery</a></li>
                 <li><a href="#testimonials">Reviews</a></li>
-                <li><a href="https://wa.me/919637867797?text=Hi%20I%20want%20to%20order%20from%20Mitha%20Khata" target="_blank" class="btn btn-primary" style="color: white; padding: 8px 20px;">Order Now</a></li>
             </ul>
             <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
         </nav>
+        <button class="cart-btn" onclick="openCart()">
+            🛒 Cart <span class="cart-count" id="cart-count">0</span>
+        </button>
     </header>
  
-    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
             <h1>Sweetness in Every Sip</h1>
             <p>Handcrafted Juices | Creamy Milkshakes | Traditional Halwas</p>
             <div class="hero-buttons">
-                <a href="https://wa.me/919637867797?text=Hi%20I%20want%20to%20order%20from%20Mitha%20Khata" target="_blank" class="btn btn-primary">Order Now</a>
+                <button class="btn btn-primary" onclick="scrollToMenu()">Order Now 🛒</button>
                 <a href="#menu" class="btn btn-secondary">View Menu</a>
             </div>
         </div>
     </section>
  
-    <!-- About Section -->
     <section id="about" class="about">
         <div class="about-img">
-            <img src="https://images.unsplash.com/photo-1556881286-fc6915169721?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Fresh ingredients preparation">
+            <img src="https://images.unsplash.com/photo-1556881286-fc6915169721?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Fresh ingredients">
         </div>
         <div class="about-text">
-            <h2 class="section-title" style="text-align: left;">From Fatima's Kitchen to You</h2>
+            <h2 class="section-title" style="text-align:left;">From Fatima's Kitchen to You</h2>
             <p>Welcome to <strong>Mitha Khata</strong>, Sweet Account for your happiness. A labor of love born right here in Fatorda, Margao. Founded by Fatima Khan, our venture started with simple home recipes passed down through generations, bringing authentic sweetness to local Goan families.</p>
-            <p>We pride ourselves on using the freshest local Goan ingredients—from sun-ripened Alphonso mangoes to pure dairy and aromatic spices. Whether you're craving a refreshing thirst-quencher or a warm, comforting bowl of Halwa, we promise a taste that feels just like home.</p>
-            <a href="https://wa.me/919637867797?text=Hi%20I%20want%20to%20order%20from%20Mitha%20Khata" target="_blank" class="btn btn-primary" style="margin-top: 15px;">Taste the Tradition</a>
+            <p>We pride ourselves on using the freshest local Goan ingredients—from sun-ripened Alphonso mangoes to pure dairy and aromatic spices.</p>
+            <button class="btn btn-primary" style="margin-top:15px;" onclick="scrollToMenu()">Taste the Tradition</button>
         </div>
     </section>
  
-    <!-- Features Section -->
     <section class="features">
         <div class="features-grid">
-            <div class="feature-item">
-                <div class="feature-icon">🍃</div>
-                <h3>100% Natural</h3>
-                <p>No artificial flavors or colors. Just pure goodness.</p>
-            </div>
-            <div class="feature-item">
-                <div class="feature-icon">🚫</div>
-                <h3>No Added Sugar</h3>
-                <p>Healthy options available for the mindful indulger.</p>
-            </div>
-            <div class="feature-item">
-                <div class="feature-icon">🕒</div>
-                <h3>Made Fresh Daily</h3>
-                <p>Prepared every morning for maximum flavor.</p>
-            </div>
-            <div class="feature-item">
-                <div class="feature-icon">🌴</div>
-                <h3>Goan Favorite</h3>
-                <p>Loved by locals in Fatorda and beyond.</p>
-            </div>
+            <div class="feature-item"><div class="feature-icon">🍃</div><h3>100% Natural</h3><p>No artificial flavors or colors.</p></div>
+            <div class="feature-item"><div class="feature-icon">🚫</div><h3>No Added Sugar</h3><p>Healthy options for the mindful indulger.</p></div>
+            <div class="feature-item"><div class="feature-icon">🕒</div><h3>Made Fresh Daily</h3><p>Prepared every morning for maximum flavor.</p></div>
+            <div class="feature-item"><div class="feature-icon">🌴</div><h3>Goan Favorite</h3><p>Loved by locals in Fatorda and beyond.</p></div>
         </div>
     </section>
  
-    <!-- Menu Section -->
     <section id="menu" class="menu">
         <h2 class="section-title">Menu Highlights</h2>
-        <div class="menu-grid">
-            <!-- Card 1 -->
-            <div class="menu-card">
-                <img src="https://images.unsplash.com/photo-1600271886742-f049cd451bba?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Fresh Orange Juice" class="menu-img">
-                <div class="menu-content">
-                    <h3>Fresh Juices</h3>
-                    <p>Revitalize with our freshly squeezed blends, featuring local Goan fruits packed with vitamins.</p>
-                    <div class="menu-price">From ₹80</div>
-                    <a href="https://wa.me/919637867797?text=I%20want%20Fresh%20Juice" class="btn btn-primary" target="_blank">
-                      Order Fresh
-                    </a>
-                </div>
-            </div>
-            <!-- Card 2 -->
-            <div class="menu-card">
-                <img src="https://images.unsplash.com/photo-1572490145871-3315a6b01b63?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Premium Milkshake" class="menu-img">
-                <div class="menu-content">
-                    <h3>Premium Milkshakes</h3>
-                    <p>Rich, creamy, and indulgent. Hand-spun shakes topped with premium nuts and homemade syrups.</p>
-                    <div class="menu-price">From ₹120</div>
-                    <a href="https://wa.me/919637867797?text=I%20want%20Milkshake" class="btn btn-primary" target="_blank">
-                      Order Shakes
-                    </a>
-                </div>
-            </div>
-            <!-- Card 3 -->
-            <div class="menu-card">
-                <img src="https://images.unsplash.com/photo-1511690655022-07611ab245d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Traditional Halwa" class="menu-img">
-                <div class="menu-content">
-                    <h3>Traditional Halwas</h3>
-                    <p>Fatima's signature slow-cooked halwas. Warm, aromatic, and rich with premium dry fruits.</p>
-                    <div class="menu-price">From ₹150 / 250g</div>
-                    <a href="https://wa.me/919637867797?text=I%20want%20Halwa%20250g" class="btn btn-primary" target="_blank">
-                      Order Halwa
-                    </a>
-                </div>
-            </div>
-        </div>
+        <div class="menu-grid" id="menu-grid"></div>
     </section>
  
-    <!-- Gallery Section -->
     <section id="gallery" class="gallery">
         <h2 class="section-title">A Feast for the Eyes</h2>
         <div class="gallery-grid">
@@ -625,45 +295,20 @@
         </div>
     </section>
  
-    <!-- Testimonials -->
     <section id="testimonials" class="testimonials">
         <h2 class="section-title">What Locals Say</h2>
         <div class="testimonial-grid">
-            <div class="testimonial-card">
-                <div class="stars">★★★★★</div>
-                <p class="quote">"The Gajar Halwa reminds me of my grandmother's cooking. Absolutely authentic and perfectly sweet!"</p>
-                <div class="customer-name">- Rahul D., Margao</div>
-            </div>
-            <div class="testimonial-card">
-                <div class="stars">★★★★★</div>
-                <p class="quote">"Mitha Khata's mango milkshake is my daily go-to. You can taste the freshness of real Goan mangoes in every sip."</p>
-                <div class="customer-name">- Priya S., Fatorda</div>
-            </div>
-            <div class="testimonial-card">
-                <div class="stars">★★★★★</div>
-                <p class="quote">"Amazing quality! Fatima ensures everything is made fresh, and the no-sugar-added juices are perfect after my morning run."</p>
-                <div class="customer-name">- Mark Fernandes, Colva</div>
-            </div>
+            <div class="testimonial-card"><div class="stars">★★★★★</div><p class="quote">"The Gajar Halwa reminds me of my grandmother's cooking. Absolutely authentic!"</p><div class="customer-name">- Rahul D., Margao</div></div>
+            <div class="testimonial-card"><div class="stars">★★★★★</div><p class="quote">"Mitha Khata's mango milkshake is my daily go-to. You can taste the freshness of real Goan mangoes."</p><div class="customer-name">- Priya S., Fatorda</div></div>
+            <div class="testimonial-card"><div class="stars">★★★★★</div><p class="quote">"Amazing quality! Fatima ensures everything is made fresh, and the no-sugar juices are perfect after my morning run."</p><div class="customer-name">- Mark Fernandes, Colva</div></div>
         </div>
     </section>
  
-    <!-- Quick Payment Section -->
-    <section style="padding:50px;text-align:center;background:#FFF;">
-      <h2>💳 Quick Payment</h2>
-      <p>Pay instantly after ordering</p>
-      <a href="upi://pay?pa=mithakhata@upi&pn=MithaKhata&cu=INR"
-         class="btn btn-primary"
-         style="margin-top:15px;">
-        Pay via UPI
-      </a>
-    </section>
- 
-    <!-- Footer / Contact -->
     <footer id="contact">
         <div class="footer-grid">
             <div class="footer-col">
-                <h3 style="font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--orange);">Mitha Khata</h3>
-                <p>Sweetness in Every Sip. Handcrafted juices, creamy milkshakes, and traditional halwas made with love by Fatima Khan.</p>
+                <h3 style="font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--orange);">Mitha Khata</h3>
+                <p>Sweetness in Every Sip. Handcrafted juices, creamy milkshakes, and traditional halwas made with love.</p>
             </div>
             <div class="footer-col">
                 <h3>Contact Us</h3>
@@ -676,47 +321,393 @@
             </div>
             <div class="footer-col">
                 <h3>Find Us</h3>
-                <!-- Google Maps Placeholder -->
-                <div class="map-placeholder">
-                    <span>Google Maps Integration Area<br />(Fatorda, Margao)</span>
-                </div>
+                <div class="map-placeholder"><span>Google Maps Integration Area<br>(Fatorda, Margao)</span></div>
             </div>
         </div>
-        <div class="copyright">
-            <p>&copy; 2026 Mitha Khata. All rights reserved.</p>
-        </div>
+        <div class="copyright"><p>© 2026 Mitha Khata. All rights reserved.</p></div>
     </footer>
  
-    <!-- Floating WhatsApp CTA -->
-    <a href="https://wa.me/919637867797?text=Hi%20I%20want%20to%20order%20from%20Mitha%20Khata" class="whatsapp-float" target="_blank" title="Order on WhatsApp">
-        <!-- Inline SVG for WhatsApp Icon -->
-        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" viewBox="0 0 16 16">
+    <a href="https://wa.me/919637867797?text=Hi%20I%20want%20to%20order%20from%20Mitha%20Khata" class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" viewBox="0 0 16 16">
             <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
         </svg>
     </a>
  
-    <!-- Interactivity -->
-    <script>
-        // Mobile Menu Toggle
-        function toggleMenu() {
-            const navLinks = document.getElementById('nav-links');
-            navLinks.classList.toggle('show');
-        }
- 
-        // Optional: Close mobile menu when clicking a link
-        document.querySelectorAll('#nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                document.getElementById('nav-links').classList.remove('show');
-            });
-        });
-    </script>
-    <!-- Sticky Order Bar -->
-    <div style="position:fixed;bottom:0;width:100%;background:#FF8C00;padding:15px;text-align:center;z-index:999;">
-      <a href="https://wa.me/919637867797?text=Hi%20I%20want%20to%20order"
-         style="color:white;font-weight:bold;text-decoration:none;">
-        🛒 Order Now on WhatsApp
-      </a>
+    <!-- Cart Overlay + Sidebar -->
+    <div class="cart-overlay" id="cart-overlay" onclick="closeCart()"></div>
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h2>🛒 Your Cart</h2>
+            <button class="cart-close" onclick="closeCart()">×</button>
+        </div>
+        <div class="cart-items" id="cart-items-list"></div>
+        <div class="cart-footer">
+            <div class="cart-row"><span>Subtotal</span><span id="c-sub">₹0</span></div>
+            <div class="cart-row"><span>Delivery</span><span id="c-del">—</span></div>
+            <div class="cart-row total"><span>Total</span><span id="c-total">₹0</span></div>
+            <button class="checkout-btn" id="checkout-btn" onclick="openOrderModal()" disabled>Proceed to Order →</button>
+        </div>
     </div>
  
+    <!-- Order Modal -->
+    <div class="order-modal" id="order-modal">
+        <div class="order-modal-bg" onclick="closeOrderModal()"></div>
+        <div class="order-modal-box">
+            <div class="modal-header">
+                <h2>📦 Complete Your Order</h2>
+                <button class="modal-close" onclick="closeOrderModal()">×</button>
+            </div>
+            <div class="modal-body" id="modal-body"></div>
+        </div>
+    </div>
+ 
+    <!-- Toast -->
+    <div class="toast" id="toast">✅ <span id="toast-msg">Added!</span></div>
+ 
+    <!-- Sticky Bar -->
+    <div class="sticky-bar">
+        <div class="sticky-bar-info">
+            🛒 <span class="count" id="s-count">0</span> item(s) &nbsp;·&nbsp; Total: <span class="total" id="s-total">₹0</span>
+        </div>
+        <button class="sticky-order-btn" onclick="openCart()">View Cart & Order</button>
+    </div>
+ 
+    <script>
+    // ─── MENU DATA ───────────────────────────────────────────
+    const MENU = [
+        {
+            id: 'juice', name: 'Fresh Juices',
+            desc: 'Freshly squeezed blends with local Goan fruits packed with vitamins.',
+            img: 'https://images.unsplash.com/photo-1600271886742-f049cd451bba?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+            variants: [
+                { name: 'Orange Juice 300ml', price: 80 },
+                { name: 'Mango Juice 300ml', price: 90 },
+                { name: 'Mixed Fruit 300ml', price: 100 },
+                { name: 'Watermelon 500ml', price: 110 },
+            ]
+        },
+        {
+            id: 'shake', name: 'Premium Milkshakes',
+            desc: 'Rich, creamy shakes topped with premium nuts and homemade syrups.',
+            img: 'https://images.unsplash.com/photo-1572490145871-3315a6b01b63?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+            variants: [
+                { name: 'Mango Milkshake 400ml', price: 120 },
+                { name: 'Chocolate Milkshake 400ml', price: 130 },
+                { name: 'Strawberry Milkshake 400ml', price: 130 },
+                { name: 'Dry Fruit Special 400ml', price: 160 },
+            ]
+        },
+        {
+            id: 'halwa', name: 'Traditional Halwas',
+            desc: "Fatima's signature slow-cooked halwas – warm, aromatic, rich with premium dry fruits.",
+            img: 'https://images.unsplash.com/photo-1511690655022-07611ab245d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+            variants: [
+                { name: 'Gajar Halwa 250g', price: 150 },
+                { name: 'Gajar Halwa 500g', price: 280 },
+                { name: 'Suji Halwa 250g', price: 130 },
+                { name: 'Suji Halwa 500g', price: 240 },
+            ]
+        }
+    ];
+ 
+    const DELIVERY = 30;
+    let cart = [];
+    let qtys = {};
+ 
+    // ─── RENDER MENU ─────────────────────────────────────────
+    function renderMenu() {
+        const g = document.getElementById('menu-grid');
+        g.innerHTML = '';
+        MENU.forEach(item => {
+            qtys[item.id] = 1;
+            g.innerHTML += `
+            <div class="menu-card">
+                <img src="${item.img}" alt="${item.name}" class="menu-img">
+                <div class="menu-content">
+                    <h3>${item.name}</h3>
+                    <p>${item.desc}</p>
+                    <div class="sub-items">
+                        <label>Choose Variant</label>
+                        <select id="v-${item.id}" onchange="syncPrice('${item.id}')">
+                            ${item.variants.map((v,i)=>`<option value="${i}">₹${v.price} — ${v.name}</option>`).join('')}
+                        </select>
+                    </div>
+                    <div class="menu-price" id="p-${item.id}">₹${item.variants[0].price}</div>
+                    <div class="item-controls">
+                        <div class="qty-control">
+                            <button class="qty-btn" onclick="chQty('${item.id}',-1)">−</button>
+                            <span class="qty-val" id="q-${item.id}">1</span>
+                            <button class="qty-btn" onclick="chQty('${item.id}',1)">+</button>
+                        </div>
+                        <button class="add-cart-btn" id="ab-${item.id}" onclick="addItem('${item.id}')">Add to Cart 🛒</button>
+                    </div>
+                </div>
+            </div>`;
+        });
+    }
+ 
+    function syncPrice(id) {
+        const item = MENU.find(m => m.id === id);
+        const vi = +document.getElementById('v-' + id).value;
+        document.getElementById('p-' + id).textContent = '₹' + item.variants[vi].price;
+    }
+ 
+    function chQty(id, d) {
+        qtys[id] = Math.max(1, (qtys[id] || 1) + d);
+        document.getElementById('q-' + id).textContent = qtys[id];
+    }
+ 
+    // ─── CART LOGIC ──────────────────────────────────────────
+    function addItem(id) {
+        const item = MENU.find(m => m.id === id);
+        const vi = +document.getElementById('v-' + id).value;
+        const v = item.variants[vi];
+        const qty = qtys[id] || 1;
+        const key = id + '-' + vi;
+        const ex = cart.find(c => c.key === key);
+        ex ? ex.qty += qty : cart.push({ key, id, name: item.name, variant: v.name, price: v.price, qty, img: item.img });
+        refreshUI();
+        showToast(`${qty}× ${v.name} added!`);
+        const btn = document.getElementById('ab-' + id);
+        btn.textContent = '✓ Added!'; btn.classList.add('added');
+        setTimeout(() => { btn.textContent = 'Add to Cart 🛒'; btn.classList.remove('added'); }, 1500);
+    }
+ 
+    function cQty(key, d) {
+        const c = cart.find(x => x.key === key);
+        if (!c) return;
+        c.qty = Math.max(0, c.qty + d);
+        if (c.qty === 0) cart = cart.filter(x => x.key !== key);
+        refreshUI();
+        if (document.getElementById('order-modal').classList.contains('open')) buildModal();
+    }
+ 
+    function removeItem(key) {
+        cart = cart.filter(x => x.key !== key);
+        refreshUI();
+        if (document.getElementById('order-modal').classList.contains('open')) buildModal();
+    }
+ 
+    const subtotal = () => cart.reduce((s, c) => s + c.price * c.qty, 0);
+    const total = () => cart.length ? subtotal() + DELIVERY : 0;
+    const itemCount = () => cart.reduce((s, c) => s + c.qty, 0);
+ 
+    function refreshUI() {
+        const n = itemCount();
+        document.getElementById('cart-count').textContent = n;
+        document.getElementById('s-count').textContent = n;
+        document.getElementById('s-total').textContent = '₹' + total();
+        document.getElementById('c-sub').textContent = '₹' + subtotal();
+        document.getElementById('c-del').textContent = cart.length ? '₹' + DELIVERY : '—';
+        document.getElementById('c-total').textContent = '₹' + total();
+        document.getElementById('checkout-btn').disabled = !cart.length;
+ 
+        const list = document.getElementById('cart-items-list');
+        if (!cart.length) {
+            list.innerHTML = `<div class="cart-empty"><div class="empty-icon">🛒</div><p>Your cart is empty</p><p style="font-size:0.82rem;color:#ccc;margin-top:6px;">Add something sweet!</p></div>`;
+        } else {
+            list.innerHTML = cart.map(c => `
+            <div class="cart-item">
+                <img src="${c.img}" class="cart-item-img" alt="${c.name}">
+                <div class="cart-item-info">
+                    <div class="cart-item-name">${c.name}</div>
+                    <div class="cart-item-variant">${c.variant}</div>
+                    <div class="cart-item-price">₹${c.price} × ${c.qty} = <strong>₹${c.price * c.qty}</strong></div>
+                    <div class="cart-item-qty">
+                        <button class="cqty-btn" onclick="cQty('${c.key}',-1)">−</button>
+                        <span class="cqty-val">${c.qty}</span>
+                        <button class="cqty-btn" onclick="cQty('${c.key}',1)">+</button>
+                    </div>
+                </div>
+                <button class="cart-remove" onclick="removeItem('${c.key}')">🗑</button>
+            </div>`).join('');
+        }
+    }
+ 
+    // ─── CART OPEN/CLOSE ──────────────────────────────────────
+    function openCart() {
+        document.getElementById('cart-sidebar').classList.add('open');
+        document.getElementById('cart-overlay').classList.add('open');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeCart() {
+        document.getElementById('cart-sidebar').classList.remove('open');
+        document.getElementById('cart-overlay').classList.remove('open');
+        document.body.style.overflow = '';
+    }
+ 
+    // ─── ORDER MODAL ─────────────────────────────────────────
+    function openOrderModal() {
+        closeCart();
+        buildModal();
+        document.getElementById('order-modal').classList.add('open');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeOrderModal() {
+        document.getElementById('order-modal').classList.remove('open');
+        document.body.style.overflow = '';
+    }
+ 
+    function buildModal() {
+        const oid = 'MK' + Date.now().toString().slice(-6);
+        document.getElementById('modal-body').innerHTML = `
+ 
+        <!-- AUTO BILL -->
+        <div class="bill-section">
+            <div class="bill-header-row">
+                <span class="bill-brand">🍊 Mitha Khata</span>
+                <div class="bill-id">Order #${oid}<br>${new Date().toLocaleDateString('en-IN',{day:'2-digit',month:'short',year:'numeric'})}</div>
+            </div>
+            <hr class="bill-divider">
+            ${cart.map(c => `
+            <div class="bill-row">
+                <span class="item-col">${c.name}</span>
+                <span class="qty-col">${c.variant} × ${c.qty}</span>
+                <span class="price-col">₹${c.price * c.qty}</span>
+            </div>`).join('')}
+            <hr class="bill-divider">
+            <div class="bill-subtotal-row"><span>Subtotal</span><span>₹${subtotal()}</span></div>
+            <div class="bill-subtotal-row"><span>Delivery charge</span><span>₹${DELIVERY}</span></div>
+            <div class="bill-total-row"><span>💰 Total Payable</span><span>₹${total()}</span></div>
+        </div>
+ 
+        <!-- ORDER FORM -->
+        <div class="form-section">
+            <h3>📋 Your Details</h3>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Full Name <span class="required">*</span></label>
+                    <input type="text" id="f-name" placeholder="e.g. Priya Fernandes">
+                </div>
+                <div class="form-group">
+                    <label>WhatsApp Number <span class="required">*</span></label>
+                    <input type="tel" id="f-phone" placeholder="+91 9XXXXXXXXX">
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Delivery Address <span class="required">*</span></label>
+                <textarea id="f-address" placeholder="House No., Street Name, Landmark, Area, Goa"></textarea>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Pincode</label>
+                    <input type="text" id="f-pin" placeholder="403602" maxlength="6">
+                </div>
+                <div class="form-group">
+                    <label>Preferred Delivery Time</label>
+                    <select id="f-time">
+                        <option>ASAP (within 2 hrs)</option>
+                        <option>Morning 8 AM – 11 AM</option>
+                        <option>Afternoon 12 PM – 3 PM</option>
+                        <option>Evening 4 PM – 7 PM</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Special Instructions (optional)</label>
+                <textarea id="f-notes" placeholder="Less sugar, extra nuts, no onion, etc." style="min-height:60px;"></textarea>
+            </div>
+ 
+            <h3 style="margin-top:20px;">💳 Payment Method</h3>
+            <div class="payment-options">
+                <label class="pay-option selected" onclick="selPay(this)">
+                    <input type="radio" name="pay" value="Cash on Delivery" checked>
+                    <span class="pay-icon">💵</span>
+                    <span class="pay-label">Cash on Delivery</span>
+                </label>
+                <label class="pay-option" onclick="selPay(this)">
+                    <input type="radio" name="pay" value="UPI / GPay">
+                    <span class="pay-icon">📱</span>
+                    <span class="pay-label">UPI / GPay</span>
+                </label>
+                <label class="pay-option" onclick="selPay(this)">
+                    <input type="radio" name="pay" value="WhatsApp Pay">
+                    <span class="pay-icon">💬</span>
+                    <span class="pay-label">WhatsApp Pay</span>
+                </label>
+            </div>
+ 
+            <button class="submit-btn" onclick="placeOrder('${oid}')">
+                ✅ Place Order — ₹${total()}
+            </button>
+        </div>`;
+    }
+ 
+    function selPay(el) {
+        document.querySelectorAll('.pay-option').forEach(p => p.classList.remove('selected'));
+        el.classList.add('selected');
+        el.querySelector('input').checked = true;
+    }
+ 
+    function placeOrder(oid) {
+        const name = document.getElementById('f-name').value.trim();
+        const phone = document.getElementById('f-phone').value.trim();
+        const addr = document.getElementById('f-address').value.trim();
+        if (!name || !phone || !addr) { alert('⚠️ Please fill in Name, Phone Number, and Address.'); return; }
+        const pay = document.querySelector('input[name="pay"]:checked')?.value || 'Cash on Delivery';
+        const time = document.getElementById('f-time').value;
+        const pin = document.getElementById('f-pin').value.trim();
+        const notes = document.getElementById('f-notes').value.trim();
+ 
+        const lines = cart.map(c => `  • ${c.name} (${c.variant}) × ${c.qty} = ₹${c.price * c.qty}`).join('\n');
+        const msg = `🧾 *ORDER #${oid}*
+ 
+👤 *Name:* ${name}
+📞 *Phone:* ${phone}
+📍 *Address:* ${addr}${pin ? ', Pin: ' + pin : ''}
+🕐 *Delivery:* ${time}
+ 
+🛒 *Items:*
+${lines}
+ 
+💰 *Subtotal:* ₹${subtotal()}
+🚚 *Delivery:* ₹${DELIVERY}
+✅ *Total:* ₹${total()}
+💳 *Payment:* ${pay}${notes ? '\n📝 *Notes:* ' + notes : ''}
+ 
+_Sent via MithaKhata.in_`;
+ 
+        const waUrl = 'https://wa.me/919637867797?text=' + encodeURIComponent(msg);
+ 
+        document.getElementById('modal-body').innerHTML = `
+        <div class="order-success">
+            <div class="success-icon">🎉</div>
+            <h3>Order Confirmed!</h3>
+            <p>Thank you, <strong>${name}</strong>! Your order is ready to be sent.</p>
+            <div class="order-id-badge">Order #${oid}</div>
+            <p>Amount: <strong>₹${total()}</strong> &nbsp;·&nbsp; Payment: <strong>${pay}</strong></p>
+            <br>
+            <a href="${waUrl}" target="_blank" class="btn btn-primary" style="display:inline-flex;align-items:center;gap:8px;margin-top:12px;font-size:1rem;">
+                💬 Send Order on WhatsApp
+            </a>
+            <br>
+            <button onclick="closeOrderModal();cart=[];refreshUI();" style="background:none;border:none;color:#bbb;cursor:pointer;font-size:0.85rem;margin-top:18px;">
+                × Close & Continue Shopping
+            </button>
+        </div>`;
+ 
+        setTimeout(() => window.open(waUrl, '_blank'), 700);
+    }
+ 
+    // ─── TOAST ────────────────────────────────────────────────
+    function showToast(msg) {
+        const t = document.getElementById('toast');
+        document.getElementById('toast-msg').textContent = msg;
+        t.classList.add('show');
+        setTimeout(() => t.classList.remove('show'), 2600);
+    }
+ 
+    // ─── NAV ─────────────────────────────────────────────────
+    function toggleMenu() { document.getElementById('nav-links').classList.toggle('show'); }
+    function scrollToMenu() { document.getElementById('menu').scrollIntoView({ behavior: 'smooth' }); }
+ 
+    document.querySelectorAll('#nav-links a').forEach(l =>
+        l.addEventListener('click', () => document.getElementById('nav-links').classList.remove('show'))
+    );
+ 
+    // ─── INIT ─────────────────────────────────────────────────
+    renderMenu();
+    refreshUI();
+    </script>
 </body>
 </html>
